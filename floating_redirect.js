@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create Link Icon
   var linkIcon = document.createElement("a");
-  linkIcon.href = "https://hirehop.sj-tech.se";
+  linkIcon.href = "https://hirehop.sj-tech.se/projects/?job=" + jobId;
   linkIcon.target = "_blank";
   linkIcon.innerHTML = "<span>&#128279;</span>"; // Unicode for link icon
   linkIcon.style.display = "none"; // Initially hide the link icon
