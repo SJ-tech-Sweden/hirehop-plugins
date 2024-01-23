@@ -5,6 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
   fab.innerHTML = "<span>+</span>";
   document.body.appendChild(fab);
 
+  // Function to extract 'id' parameter from URL
+  function getJobIdFromUrl() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id');
+  }
+
+  // Get the 'id' parameter from the URL
+  var jobId = getJobIdFromUrl();
+
+  // Now 'jobId' contains the value of the 'id' parameter
+
+  // Rest of your script goes here...
+
+  // For example, log the 'id' to the console
+  console.log('Job ID from URL:', jobId);
+
   // Create Link Icon
   var linkIcon = document.createElement("a");
   linkIcon.href = "https://hirehop.sj-tech.se";
@@ -21,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fab.style.right = "20px";
   fab.style.width = "50px";
   fab.style.height = "50px";
-  fab.style.backgroundColor = "#007bff";
+  fab.style.backgroundColor = "#3f873f";
   fab.style.borderRadius = "50%";
   fab.style.display = "flex";
   fab.style.alignItems = "center";
@@ -32,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add Hover Effect
   fab.addEventListener("mouseover", function () {
-    fab.style.backgroundColor = "#0056b3";
+    fab.style.backgroundColor = "#a6a6a6";
   });
 
   fab.addEventListener("mouseout", function () {
-    fab.style.backgroundColor = "#007bff";
+    fab.style.backgroundColor = "#3f873f";
   });
 
   // Handle Click on Floating Action Button
