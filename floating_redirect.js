@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
           &:nth-child(1) {background: #ff9800;}
           &:nth-child(2) {background: #2196F3;}
-          &:nth-child(3) {background: #FFEB3B;}
+          &:nth-child(3) {background: #bfaf1d;}
   
           a {
             background: inherit;
