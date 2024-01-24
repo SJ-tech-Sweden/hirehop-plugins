@@ -1,10 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Create Floating Action Button
-  var fab = document.createElement("div");
-  fab.id = "fab";
-  fab.innerHTML = "<span>+</span>";
-  document.body.appendChild(fab);
-
   // Function to extract 'id' parameter from URL
   function getJobIdFromUrl() {
     var urlParams = new URLSearchParams(window.location.search);
@@ -14,19 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get the 'id' parameter from the URL
   var jobId = getJobIdFromUrl();
 
-  // Now 'jobId' contains the value of the 'id' parameter
+  // Create Floating Action Button
+  var fab = document.createElement("div");
+  fab.id = "fab";
+  fab.innerHTML = "<span>+</span>";
+  document.body.appendChild(fab);
 
-  // Rest of your script goes here...
-
-  // For example, log the 'id' to the console
-  console.log('Job ID from URL:', jobId);
-
-  // Create Link Icon
-  var linkIcon = document.createElement("a");
-  linkIcon.href = jobId ? "https://hirehop.sj-tech.se/projects/?job=" + jobId : "https://hirehop.sj-tech.se";
-  linkIcon.target = "_blank";
-  linkIcon.innerHTML = "<span>&#128279;</span>"; // Unicode for link icon
-  linkIcon.style.display = "none"; // Initially hide the link icon
+  // Create Action Buttons
+  var soundButton = createActionButton("microphone", "onClickSound");
+  var lightButton = createActionButton("light", "onClickLight");
+  var videoButton = createActionButton("camcorder", "onClickVideo");
 
   // Track the click count
   var clickCount = 0;
@@ -37,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fab.style.right = "20px";
   fab.style.width = "50px";
   fab.style.height = "50px";
-  fab.style.backgroundColor = "#3f873f";
+  fab.style.backgroundColor = "#007bff";
   fab.style.borderRadius = "50%";
   fab.style.display = "flex";
   fab.style.alignItems = "center";
@@ -48,25 +39,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add Hover Effect
   fab.addEventListener("mouseover", function () {
-    fab.style.backgroundColor = "#a6a6a6";
+    fab.style.backgroundColor = "#0056b3";
   });
 
   fab.addEventListener("mouseout", function () {
-    fab.style.backgroundColor = "#3f873f";
+    fab.style.backgroundColor = "#007bff";
   });
 
   // Handle Click on Floating Action Button
   fab.addEventListener("click", function () {
     clickCount++;
 
-    // On the first click, show the link icon
+    // On the first click, reveal additional action buttons
     if (clickCount === 1) {
       fab.innerHTML = ""; // Clear the plus sign
-      linkIcon.style.display = "inline"; // Show the link icon
-      fab.appendChild(linkIcon); // Append the link icon to the button
+      appendActionButton(soundButton);
+      appendActionButton(lightButton);
+      appendActionButton(videoButton);
     } else if (clickCount === 2) {
-      // On the second click, open the link in a new tab
-      window.open(linkIcon.href, "_blank");
+      // On the second click, open the link associated with jobId
+      if (jobId) {
+        window.location.href = "https://hirehop.sj-tech.se/projects/?job=" + jobId;
+      } else {
+        window.location.href = "https://hirehop.sj-tech.se";
+      }
     }
   });
+
+  // Function to create an action button
+  function createActionButton(icon, clickFunction) {
+    var actionButton = document.createElement("div");
+    actionButton.classList.add("action-button");
+    actionButton.innerHTML = "<span>" + icon + "</span>";
+    actionButton.addEventListener("click", window[clickFunction]); // Bind click event
+    return actionButton;
+  }
+
+  // Function to append an action button to the DOM
+  function appendActionButton(button) {
+    fab.appendChild(button);
+  }
+
+  // onClickSound function
+  window.onClickSound = function () {
+    console.log("Clicked on Sound");
+    // You can perform additional actions here
+  };
+
+  // onClickLight function
+  window.onClickLight = function () {
+    console.log("Clicked on Light");
+    // You can perform additional actions here
+  };
+
+  // onClickVideo function
+  window.onClickVideo = function () {
+    console.log("Clicked on Video");
+    // You can perform additional actions here
+  };
 });
