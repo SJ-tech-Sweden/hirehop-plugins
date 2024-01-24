@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         border-radius: 50%;
         border: 0;
         outline: 0;
-        background: #3f873f;
+        background: #3f873f !important;
         font-size: 24px;
         color: white;
         z-index: 2;
