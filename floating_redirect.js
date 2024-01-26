@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
       .multi-action {
         display: inline-block;
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        bottom: 40px;
+        right: 40px;
         width: 56px;
         height: 56px;
       }
