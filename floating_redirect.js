@@ -1,4 +1,4 @@
-OF// FloatingActionButton.js
+// FloatingActionButton.js
 const fontAwesomeLink = document.createElement('link');
 fontAwesomeLink.rel = 'stylesheet';
 fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'; // Adjust the version if needed
