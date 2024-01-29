@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create the multi-action container and append it to the body
     const multiActionContainer = document.createElement('div');
     multiActionContainer.classList.add('multi-action');
-    if (jobId && !window.location.href.endsWith("modules/stock/") && !window.location.href.indexOf("modules/scanning/")) {
+    if (jobId && !window.location.href.endsWith("modules/stock/") && !window.location.toString().includes("modules/scanning/")) {
         multiActionContainer.innerHTML = `
         <button class='action-button'><span class='fa fa-plus'></span></button>
         <ul class='actions'>
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="https://hirehop.sj-tech.se/video/?job=${jobId}" target="_blank"><span class='fa-solid fa-video'></span></a></li>
         </ul>
         `;
-    } else if (!window.location.href.endsWith("modules/stock/") && !window.location.href.indexOf("modules/scanning/")){
+    } else if (!window.location.href.endsWith("modules/stock/") && !window.location.toString().includes("modules/scanning/")){
         multiActionContainer.innerHTML = `
         <button class='action-button'><span class='fa fa-plus'></span></button>
         <ul class='actions'>
